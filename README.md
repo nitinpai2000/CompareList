@@ -1,11 +1,9 @@
 # CompareList
-#To compare the two lists
-#Implement the IComparableItem interface on the class of object list to be compared. 
 
-  
-  
-  public class Product : IComparableItem<Product>
-  {
+
+    
+  ```public class Product : IComparableItem<Product>
+    {
         public string Name { get; set; }
         public decimal Cost { get; set; }
 
@@ -24,11 +22,11 @@
             return string.Format("{0}{1}",Name,Cost);
         }
     }
-    
-    
-    Then within main method
-    
-    class Program
+       ```
+   
+    //Then within main method
+ 
+```class Program
     {
         static void Main(string[] args)
         {
@@ -45,3 +43,4 @@
             System.Console.WriteLine("Deleted product {0}", deleted.FirstOrDefault().Name);
         }
     }
+```
