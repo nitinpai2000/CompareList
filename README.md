@@ -2,8 +2,10 @@
 To compare the two lists
 Implement the IComparableItem interface on the class of object list to be compared. 
 
+  
+  
   public class Product : IComparableItem<Product>
-    {
+  {
         public string Name { get; set; }
         public decimal Cost { get; set; }
 
