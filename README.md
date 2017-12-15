@@ -1,6 +1,6 @@
 # CompareList
-To compare the two lists
-Implement the IComparableItem interface on the class of object list to be compared. 
+#To compare the two lists
+#Implement the IComparableItem interface on the class of object list to be compared. 
 
   
   
