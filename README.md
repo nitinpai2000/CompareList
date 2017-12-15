@@ -1,8 +1,8 @@
 # CompareList
 
 
-    
-  ```public class Product : IComparableItem<Product>
+ ```   
+    public class Product : IComparableItem<Product>
     {
         public string Name { get; set; }
         public decimal Cost { get; set; }
