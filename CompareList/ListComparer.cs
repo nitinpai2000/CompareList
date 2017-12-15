@@ -21,9 +21,9 @@ namespace ListComparer
                 .SelectMany(m => m.D.DefaultIfEmpty(), (m, n) => new { S = m, D = n }).Where(m => m.D == null).Select(n => n.S.S);
         }
 
-        public IEnumerable<T> GetDeletedItems(IEnumerable<T> source, IEnumerable<T> destination)
+        public IEnumerable<T> GetDeletedItems()
         {
-            return destination.GroupJoin(source, x => x.GetKeysToFindDeletedItems(), y => y.GetKeysToFindDeletedItems(), (x, y) => new { S = x, D = y })
+            return _destination.GroupJoin(_source, x => x.GetKeysToFindDeletedItems(), y => y.GetKeysToFindDeletedItems(), (x, y) => new { S = x, D = y })
                .SelectMany(m => m.D.DefaultIfEmpty(), (m, n) => new { S = m, D = n }).Where(m => m.D == null).Select(n => n.S.S);
         }
 

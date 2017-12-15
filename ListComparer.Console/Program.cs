@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListComparer.Console
 {
@@ -10,24 +7,24 @@ namespace ListComparer.Console
     {
         static void Main(string[] args)
         {
-            List<Person> persons = new List<Person> { new Person { Name = "Nitin", Age = 25 }, new Person { Name = "Pai", Age=26 } };
-            List<Person> persons2 = new List<Person> { new Person { Name = "Nitin1", Age = 25 } , new Person { Name = "Pai", Age = 23 } };
+            List<Product> newProductList = new List<Product> { new Product { Name = "TV", Cost = 400 }, new Product { Name = "USB", Cost=12 } };
+            List<Product> oldProductList = new List<Product> { new Product { Name = "TV", Cost = 450 } , new Product { Name = "MP3 Player", Cost = 20 } };
 
-            var comparer = new ListComparer<Person>(persons,persons2);
+            var comparer = new ListComparer<Product>(newProductList, oldProductList);
             var added = comparer.GetAddedItems();
-            var deleted = comparer.GetDeletedItems(persons, persons2);
+            var deleted = comparer.GetDeletedItems();
             var updated = comparer.GetUpdatedItems();
 
-            System.Console.WriteLine(added.FirstOrDefault().Name);
-            System.Console.WriteLine(updated.FirstOrDefault().Name);
-            System.Console.WriteLine(deleted.FirstOrDefault().Name);
+            System.Console.WriteLine("Added product {0}",added.FirstOrDefault().Name);
+            System.Console.WriteLine("Updated product {0}", updated.FirstOrDefault().Name);
+            System.Console.WriteLine("Deleted product {0}", deleted.FirstOrDefault().Name);
         }
     }
 
-    public class Person : IComparableItem<Person>
+    public class Product : IComparableItem<Product>
     {
         public string Name { get; set; }
-        public int Age { get; set; }
+        public decimal Cost { get; set; }
 
         public string GetKeysToFindAddedItems()
         {
@@ -41,11 +38,9 @@ namespace ListComparer.Console
 
         public string GetKeysToFindUpdatedItems()
         {
-            return string.Format("{0}{1}",Name,Age);
+            return string.Format("{0}{1}",Name,Cost);
         }
     }
-
-    
 
     
 
