@@ -22,11 +22,11 @@
             return string.Format("{0}{1}",Name,Cost);
         }
     }
-       ```
+       
    
     //Then within main method
  
-```class Program
+   class Program
     {
         static void Main(string[] args)
         {
